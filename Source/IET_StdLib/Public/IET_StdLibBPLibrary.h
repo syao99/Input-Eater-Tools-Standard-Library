@@ -3,6 +3,8 @@
 #pragma once
 
 #include "Kismet/BlueprintFunctionLibrary.h"
+//#include "Widgets/SWidget.h"
+
 #include "IET_StdLibBPLibrary.generated.h"
 
 /* 
@@ -41,6 +43,9 @@ class UIET_StdLibBPLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get Sum of Float Array", Keywords = "IET_StdLib int array sum"), Category = "Math | Float")
 	static float IETSL_GetFloatArraySum(TArray<float> FloatArray);
 
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get Average of Float Array", Keywords = "IET_StdLib get average float array"), Category = "Math | Float")
+	static float IETSL_GetFloatArrayAverage(TArray<float> FloatArray);
+
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get Midpoint", Keywords = "IET_StdLib get midpoint mid point between vector"), Category = "Math | Vector")
 	static FVector IETSL_GetMidpoint(FVector A, FVector B);
 	
@@ -61,10 +66,28 @@ class UIET_StdLibBPLibrary : public UBlueprintFunctionLibrary
 	
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Clamp Vector Components", Keywords = "IET_StdLib clamp vector components float"), Category = "Math | Vector")
 	static FVector IETSL_ClampVectorComponents(FVector InVector, FVector Min, FVector Max);
+
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Clamp Vector2D Components", Keywords = "IET_StdLib clamp vector vector2d 2d components float"), Category = "Math | Vector")
+	static FVector2D IETSL_ClampVector2DComponents(FVector2D InVector, FVector2D Min, FVector2D Max);
 	
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Delta (Transform)", Keywords = "IET_StdLib delta subtract minus transform"), Category = "Math | Transform")
 	static FTransform IETSL_DeltaTransform(FTransform A, FTransform B);
 	
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Discard Transform Scale", Keywords = "IET_StdLib discard remove transform scale component"), Category = "Math | Transform")
 	static FTransform IETSL_DiscardTransformScale(FTransform InTransform);
+
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Project Position with Velocity and Time", Keywords = "IET_StdLib project position velocity time delta"), Category = "Math | Vector")
+	static FVector IETSL_ProjectPositionWithVelocityAndTime(FVector Position, FVector Velocity, float Time);
+
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Calculate Time from Positions and Speed", Keywords = "IET_StdLib calculate get time position speed vector"), Category = "Math | Vector")
+	static float IETSL_CalculateTimeFromPositionsAndSpeed(float Speed, FVector Start, FVector Destination);
+
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Calculate Shot Vector", Keywords = "IET_StdLib calculate suggest shot vector direction velocity"), Category = "Math | Vector")
+	static FVector IETSL_CalculateShotVector(FVector TargetPosition, FVector TargetVelocity, FVector OwnPosition, FVector OwnVelocity, float ProjectileSpeed, int32 Iterations, float LeadMultiplier);
+
+	//UFUNCTION(BlueprintCallable, meta = (DisplayName = "Switch Menu By Widget", Keywords = "IET_StdLib switch menu by widget"), Category = "Widget")
+	//static void IETSL_SwitchMenuByWidget(TArray<SWidget*> AllWidgetsArray);
+
+	//UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get World Gravity", Keywords = "IET_StdLib get world gravity"), Category = "World")
+	//float IETSL_GetWorldGravity();
 };
