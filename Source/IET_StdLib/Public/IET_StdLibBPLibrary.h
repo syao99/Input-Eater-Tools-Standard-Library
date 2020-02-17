@@ -43,7 +43,7 @@ class UIET_StdLibBPLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get Sum of Float Array", Keywords = "IET_StdLib int array sum"), Category = "Math | Float")
 	static float IETSL_GetFloatArraySum(TArray<float> FloatArray);
 
-	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Get Average of Float Array", Keywords = "IET_StdLib get average float array"), Category = "Math | Float")
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get Average of Float Array", Keywords = "IET_StdLib get average float array"), Category = "Math | Float")
 	static float IETSL_GetFloatArrayAverage(TArray<float> FloatArray);
 
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get Midpoint", Keywords = "IET_StdLib get midpoint mid point between vector"), Category = "Math | Vector")
